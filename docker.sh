@@ -1,0 +1,1 @@
+docker build -t mihaiblandu/node-web-app .

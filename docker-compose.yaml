@@ -1,0 +1,22 @@
+version: '3'
+services: 
+    excel-convertor:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            labels:
+                - "com.example.description=Excel webapp"
+            ports: 
+                -3000
+    mongodb_container:
+        image: mongo:latest
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: rootpassword
+        ports:
+            - 27017:27017
+        volumes:
+        - mongodb_data_container:/data/db
+
+volumes:
+    mongodb_data_container:
